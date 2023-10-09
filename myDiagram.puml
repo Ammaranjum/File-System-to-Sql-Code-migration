@@ -1,0 +1,320 @@
+
+@startuml
+
+class Administrateur{
+     -nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -username:String
+     -motPasse:String
+     -connecte:boolean
+     -ids:int
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+
+}
+
+class Catalogue {
+listeVehicules:Vehicule
++getListeVehicule():Vehicule
++ajouterVehicule():void
++retirerVehicule():void
++getVehiculesParMarque():Vehicule
++estDisponible():void
+
+
+}
+
+class Client {
+-clientId:int
+-nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -Permis:String
+     -CarteBank:String
+     -username:String
+     -motPasse:String
+     -connecte:boolean
+     -actif:boolean
+     -accompagnantId:int
+     -ids:int
+
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+     }
+
+class Conducteur{
+-conducteurId:int
+-nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -ids:int
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+     }
+
+class FicheRecapitulatives {
+ rapport:Rapport
+
++genererListeClients():String
++genererListeVehicules():String
++genererListeVehiculesDisponibles():String
++genererListeVehiculesJamaisLouees():String
++genererListeVehiculesNonDisponibles():String
++genererListeLocations():String
++genererListeLocationsEnCours():String
+
+}
+
+class Gestionnaire {
+-empId:int
+-nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -username:String
+     -motPasse:String
+     -modele:AgenceModele
+     -connecte:boolean
+     -ids = int
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+     }
+class Location{
+-dateLocation :Date
+-dateRetour:Date
+-vehicule:Vehicule
+-client:Client
+-archivee:boolean
+
++getDateLocation():Date
++setDateLocation():void
++getDateRetour():Date
++setDateRetour():void
++getVehicule():Vehicule
++estAttribuer():boolean
++getClient():Client
++setClient():void
++archiver():void
++estArchivee():boolean
++getMontant():double
++correspond():boolean
++description():String
+
+}
+class Manager{
+-empId:int
+-nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -username:String
+     -motPasse:String
+     -connecte:boolean
+     -ids:int
+     -modele:AgenceModele
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+     }
+class Prepose{
+-empId:int
+-nom:String
+     -prenom:String
+     -Adresse:String
+     -Telephone:String
+     -username:String
+     -motPasse:String
+     -connecte:boolean
+     -ids:int
+     -modele:AgenceModele
+
+     +getnom():String
+     +setNom():void
+     +getPrenom():String
+     +setPrenom():String
+     +getAdresse():String
+     +setdrese():void
+     +getusername():String
+     +setusername():void
+     +getmotPasse():String
+     +setmotPasse():void
+     +seConnecter():void
+     +seDeconnecter():void
+     }
+class Rapport{
+-controller:AgenceControlleur
+-fiches:FicheRecapitulatives
+
++getFiches():FicheRecapitulatives
++getControlleur():AgenceControlleur
+}
+class Reservation {
+-dateReservation:Date
+-dateRetour:Date
+-vehicule:Vehicule
+-client:Client
+
++getDateReservation():Date
++setDateReservation():void
++getDateRetour():Date
++setDateRetour():void
++getVehicule():Vehicule
++estAttribuer():boolean
++getClient():Client
++setClient():void
++archiver():void
++estArchivee():boolean
++toString():String
++correspond():boolean
+
+
+
+}
+
+enum TypeVehicule <<Vehicule>> {
+  SIMPLE, PRESTIGE, UTILITAIRE
+}
+class  Vehicule{
+#matricule:String
+#marque:String
+#modele:String
+#annee:int
+#kilometrage:int
+#nbrPlaces:int
+#typeVehicule:TypeVehicule
+#prixJournalier:double
+#louee:boolean
+#reservee:boolean
+
++getMatricule():String
++setMatricule():void
++getMarque():String
++setMarque():void
++getModele():String
++setModele():void
++getAnnee():int
++setAnnee():void
++getKilometrage():int
++setKilometrage():void
++getNbrPlaces():int
++setNbrPlaces():void
++getTypeVehicule():TypeVehicule
++setTypeVehicule():void
++getPrixJournalier():double
++setPrixJournalier():void
++estLouee():boolean
++louer():void
++retourLocation():void
++estReservee():boolean
++reserver():void
++retourReservation():void
++toString():String
++description():String
+}
+class VehiculePrestique{
+PRESTIGE:TypeVehicule
+
+}
+class VehiculeSimple{
+SIMPLE:TypeVehicule
+}
+class VehiculeUtilitaire{
+UTILITAIRE:TypeVehicule
+}
+
+
+VehiculePrestique --|> Vehicule
+VehiculeSimple --|> Vehicule
+VehiculeUtilitaire --|> Vehicule
+Vehicule  -->  Reservation
+Vehicule  -->  Location
+
+Client "0..*" --> "1" Catalogue :Consulte
+Client "0..*" --> "1..*" Reservation :fait
+Client "0..*" --> "1..*" Location :fait
+
+Prepose  -->  Catalogue :Consulte
+Prepose "1..*" --> "0..*" Location :Enregistre
+Prepose "1..*" --> "0..*" Reservation :Enregistre
+Prepose "1..*" --> "0..*" Client:Gerer
+Prepose "1..*" --> "0..*" Client:Bloquer
+Prepose "1..*" --> "0..*" FicheRecapitulatives:Imprimer
+
+Manager "1" --> "1..*" Vehicule:retirer vehicule
+
+Gestionnaire "1" --> "1..*" Vehicule:Saisir nouveau vehicule
+Gestionnaire "1" --> "1..*" Rapport:Obtenir
+
+Administrateur "1" --> "1..*" Client:Gerer
+Administrateur "1" --> "1..*" Prepose:Gerer
+Administrateur "1" --> "1..*" Manager:Gerer
+Administrateur "1" --> "1..*" Gestionnaire:Gerer
+
+Catalogue  --> Vehicule:Recupere
+
+Conducteur "1" --> "1..*"Client:Accompagne
+
+Vehicule --> TypeVehicule : type
+
+
+@enduml
+
+

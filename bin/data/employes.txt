@@ -1,0 +1,7 @@
+1, 1, 2, 2
+1, Dupont, Jean, Lyon, +336520122, admin, admin, administrateur
+1, Martin, Sophie, Marseille, +336121012, prep, secret, prepose
+1, Dubois, Pierre, Lyon, +335121210, manager1, man, manager
+2, Jack, Robert, Paris, +336558970, manager2, man2, manager
+1, Lefebvre, Marie, Brest, +336484752, gest, abc123, gestionnaire
+2, Laurent, Lina, Rouen, +335241516, lina, lina, gestionnaire
